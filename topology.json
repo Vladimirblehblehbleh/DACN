@@ -1,0 +1,69 @@
+{
+    "instances": [
+      {
+        "name": "vm1",
+        "image": "ubuntu-server",
+        "cpu": 2,
+        "ram": 2,
+        "disk": 30,
+        "networks": [
+          {
+            "name": "net1",
+            "ip": "192.168.1.10"
+          }
+        ]
+      },
+      {
+        "name": "s2",
+        "image": "ubuntu-server-focal",
+        "cpu": 2,
+        "ram": 4,
+        "disk": 40,
+        "networks": [
+          {
+            "name": "net2",
+            "ip": "192.168.2.10"
+          }
+        ]
+      }
+    ],
+    "networks": [
+      {
+        "name": "net2",
+        "cidr": "192.168.2.0/24",
+        "pool": [
+          
+        ],
+        "gateway_ip": "192.168.2.1",
+        "enable_dhcp": false
+      },
+      {
+        "name": "net1",
+        "cidr": "192.168.1.0/24",
+        "pool": [
+          
+        ],
+        "gateway_ip": "192.168.1.1",
+        "enable_dhcp": false
+      }
+    ],
+    "routers": [
+      {
+        "name": "R1",
+        "networks": [
+          {
+            "name": "net2",
+            "ip": "192.168.2.1"
+          },
+          {
+            "name": "net1",
+            "ip": "192.168.1.1"
+          }
+        ],
+        "external": true,
+        "routes": [
+          
+        ]
+      }
+    ]
+}
